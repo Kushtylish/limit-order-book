@@ -47,9 +47,9 @@ def run_sim(seed, duration, order_rate, cancel_rate, market_prob, n_levels, init
 
 @st.cache_data
 def run_impact(seed, sizes, n_trials):
-    def factory(s):
+    def factory(seed):
         return Simulator(SimulationConfig(
-            seed=s, duration=2.0,
+            seed=seed, duration=2.0,
             n_levels=10, initial_qty=5,
             order_rate=100.0, cancel_rate=50.0,
         ))
